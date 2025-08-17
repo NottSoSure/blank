@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .a4-paper {
+    aspect-ratio: 1 / 1.414; /* A4 paper aspect ratio */
+  }
+}
