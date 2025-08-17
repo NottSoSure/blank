@@ -1,5 +1,6 @@
 {
   "name": "blank",
+  "homepage": "https://github.com/NottSoSure/blank.git",
   "private": true,
   "version": "0.0.0",
   "type": "module",
