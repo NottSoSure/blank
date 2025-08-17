@@ -1,34 +1,48 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import ResumeForm from './components/ResumeForm'
+import ResumePreview from './components/ResumePreview'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [resumeData, setResumeData] = useState({
+    personalInfo: {
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      phone: '123-456-7890',
+      address: '123 Main St, Anytown, USA',
+    },
+    experience: [
+      {
+        company: 'Tech Corp',
+        role: 'Software Engineer',
+        startDate: '2020-01-01',
+        endDate: 'Present',
+        description: 'Developed and maintained web applications using React and Node.js.',
+      },
+    ],
+    education: [
+      {
+        institution: 'University of Technology',
+        degree: 'B.S. in Computer Science',
+        startDate: '2016-09-01',
+        endDate: '2020-05-31',
+      },
+    ],
+    skills: ['React', 'Node.js', 'JavaScript', 'HTML', 'CSS'],
+  });
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="min-h-screen bg-gray-100 font-sans">
+      <header className="bg-white shadow-md">
+        <h1 className="text-4xl font-bold text-center text-gray-800 py-6">
+          AI Resume Builder
+        </h1>
+      </header>
+      <main className="container mx-auto p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <ResumeForm resumeData={resumeData} setResumeData={setResumeData} />
+        <ResumePreview resumeData={resumeData} />
+      </main>
+    </div>
   )
 }
 
